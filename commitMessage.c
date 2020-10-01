@@ -17,10 +17,9 @@ int main(){
 	char initInstruction[]= "git init";
 	char addInstruction[] = "git add .";
 
-	// printf("Type the commit message to sync data with repository");
-	// fgets(commitMessage, sizeof(commitMessage), stdin);
+	fgets(commitMessage, sizeof(commitMessage), stdin);
 	char commitInstruction[] = "git commit -m testexx";
-	// concat("git commit -m", commitMessage);
+	concat("git commit -m", commitMessage);
 	
 	if(!dir)
 		system(initInstruction);

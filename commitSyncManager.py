@@ -7,7 +7,7 @@ p = subprocess.Popen(args,
 		stderr=subprocess.PIPE,
 		text=True)
 
-saida = p.communicate("Mensagem de commit") #tentar receber por args via terminal
+saida = p.communicate("Mensagem de commit teste") #tentar receber por args via terminal
 
 print("Saidas do subprocesso");
 print("\n\nSaida padrao: " + saida[0] + "\n\nSaida de erro " + saida[1]);
