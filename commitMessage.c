@@ -18,7 +18,7 @@ int main(){
 	char addInstruction[] = "git add .";
 
 	printf("Type the commit message to sync data with repository");
-	fgets(commitMessage, sizeof(commitMessage), stdin);
+	// fgets(commitMessage, sizeof(commitMessage), stdin);
 	char commitInstruction[] = "git commit -m 'teste";
 	// concat("git commit -m", commitMessage);
 	
@@ -30,7 +30,6 @@ int main(){
 	printf("Commit efetuado com sucesso");
 	perror("Programa C: mensagem na saida de erro");
 
-	sleep(3);
 	return 0;
 }
 
