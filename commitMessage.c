@@ -19,7 +19,7 @@ int main(){
 
 	// printf("Type the commit message to sync data with repository");
 	// fgets(commitMessage, sizeof(commitMessage), stdin);
-	char commitInstruction[] = "git commit -m 'teste'";
+	char commitInstruction[] = "git commit -m testexx";
 	// concat("git commit -m", commitMessage);
 	
 	if(!dir)
