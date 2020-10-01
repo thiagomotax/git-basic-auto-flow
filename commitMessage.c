@@ -18,8 +18,8 @@ int main(){
 	char addInstruction[] = "git add .";
 
 	fgets(commitMessage, sizeof(commitMessage), stdin);
-	char commitInstruction[] = "git commit -m testexx";
-	concat("git commit -m", commitMessage);
+	// char commitInstruction[] = "git commit -m testexx";
+	char commitInstruction[] = "git commit -m foda";
 	
 	if(!dir)
 		system(initInstruction);
