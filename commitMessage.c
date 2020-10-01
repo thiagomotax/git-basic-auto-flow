@@ -19,18 +19,18 @@ int main(){
 
 	printf("Type the commit message to sync data with repository");
 	fgets(commitMessage, sizeof(commitMessage), stdin);
-	char *commitInstruction = "git commit -m 'teste";
-	//concat("git commit -m", commitMessage);
+	char commitInstruction[] = "git commit -m 'teste";
+	concat("git commit -m", commitMessage);
 	
 	if(!dir)
 		system(initInstruction);
 	system(addInstruction);
-	system(&commitInstruction);
+	system(commitInstruction);
 
 	printf("Commit efetuado com sucesso");
 	perror("Programa C: mensagem na saida de erro");
 
-	sleep(10);
+	sleep(3);
 	return 0;
 }
 
