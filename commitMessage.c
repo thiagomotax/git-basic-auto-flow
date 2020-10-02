@@ -28,10 +28,10 @@ int main(){
 	printf("\nCommit efetuado com sucesso");
 	system(commitInstruction);
 
-	printf("\nSincronizando coms o repositório remoto");
+	printf("\nSincronizando coms o repositorio remoto");
 	system(pullInstruction);
 
-	printf("\nEnviando alterações para o repositório remoto");
+	printf("\nEnviando alteracoes para o repositorio remoto");
 	system(pullInstruction);
 
 	return 0;
