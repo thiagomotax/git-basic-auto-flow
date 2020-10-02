@@ -4,7 +4,7 @@
 
 int main(){
 	char commitMessage[72];
-	fgets (commitMessage, 72, stdin); //pega a entrada do subprocess
+	scanf("%s", &commitMessage); //pega a entrada do subprocess
 	FILE* dir = fopen(".git", "r"); //tenta abrir a basta .git
 	char initInstruction[]= "git init";
 	char addInstruction[] = "git add .";
