@@ -13,13 +13,18 @@ char* concat(const char *s1, const char *s2)
 
 int main(){
 	char commitMessage[72];
+	scanf("%s", &commitMessage);
 	FILE* dir = fopen(".git", "r");
 	char initInstruction[]= "git init";
 	char addInstruction[] = "git add .";
+	char pullInstruction[] = "git pull origin master";
+	char pushInstruction[] = "git push origin master";
 
-	fgets(commitMessage, sizeof(commitMessage), stdin);
 	// char commitInstruction[] = "git commit -m testexx";
-	char commitInstruction[] = "git commit -m foda";
+	char commitInstruction[] = "git commit -m ";
+
+	strcat(commitInstruction, commitMessage);
+
 	
 	if(!dir)
 		system(initInstruction);
