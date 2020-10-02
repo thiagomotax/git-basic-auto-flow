@@ -14,8 +14,7 @@ int main(){
 	char commitInstruction[] = "git commit -m ";
 	strcat(commitInstruction, commitMessage);
 
-	
-	if(!dir) //verifica se a pasta .git existe, e se nao existe, cria uma
+	if(dir != NULL) //verifica se a pasta .git existe, e se nao existe, cria uma
 		system(initInstruction);
 	system(addInstruction);
 	system(commitInstruction);
