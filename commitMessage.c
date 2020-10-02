@@ -16,16 +16,16 @@ int main(){
 
 	if(dir != NULL){  //verifica se a pasta .git existe, e se nao existe, cria uma
 		system(initInstruction);
-		printf("Repositório git criado");
+		printf("\nRepositorio git criado");
 	}
 	else{
-		printf("Repositório git encontrado");
+		printf("\nRepositprio git encontrado");
 	}
 
-	printf("Arquivos adicionados a stanging area");
+	printf("\nArquivos adicionados a stanging area");
 	system(addInstruction);
 
-	printf("Commit efetuado com sucesso");
+	printf("\nCommit efetuado com sucesso");
 	system(commitInstruction);
 
 
