@@ -9,7 +9,6 @@ p = subprocess.Popen(args,
 
 saida = p.communicate("MensagemCommit") #tentar receber por args via terminal
 
-print("Saidas do subprocesso");
-print("\n-----------------------\nSaida padrao: \n" + saida[0] + "\n------------------------\n");
+print("\n-----------------------\nSaida: \n" + saida[0] + "\n------------------------\n");
 
 print("Programa python finalizado")
