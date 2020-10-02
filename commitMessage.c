@@ -14,12 +14,20 @@ int main(){
 	char commitInstruction[] = "git commit -m ";
 	strcat(commitInstruction, commitMessage);
 
-	if(dir != NULL) //verifica se a pasta .git existe, e se nao existe, cria uma
+	if(dir != NULL){  //verifica se a pasta .git existe, e se nao existe, cria uma
 		system(initInstruction);
+		printf("Repositório git criado");
+	}
+	else{
+		printf("Repositório git encontrado");
+	}
+
+	printf("Arquivos adicionados a stanging area");
 	system(addInstruction);
-	system(commitInstruction);
 
 	printf("Commit efetuado com sucesso");
+	system(commitInstruction);
+
 
 	return 0;
 }
