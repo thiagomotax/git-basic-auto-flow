@@ -1,2 +1,0 @@
-MUDAR PARA 
-subprocess.call(["ls", "-l"]) ?
