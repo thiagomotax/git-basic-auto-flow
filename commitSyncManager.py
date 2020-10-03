@@ -5,6 +5,20 @@ def errorMessage(operation):
 def generateMessage(operation):
 	return [f"Trying to {operation} files", f"{operation} done"]
 
+def createSubProcess(args):
+	args = args
+	p = subprocess.Popen(args,
+		stdin=subprocess.PIPE,
+		stdout=subprocess.PIPE,
+		stderr=subprocess.PIPE,
+		text=True)
+	return p.communicate()
+
+def doVerifyRemote():
+	output, error = createSubProcess(['git', 'remote'])
+	if output == '':
+		raise Exception("Please, first connect to remote (or you can start the project with clone)")
+
 def doStagingArea():
 	try: 
 		message = generateMessage("Add")
@@ -13,7 +27,6 @@ def doStagingArea():
 		print(message[1])
 	except: 	
 		errorMessage("Add")
-
 
 def doCommit():
 	try: 
@@ -25,18 +38,37 @@ def doCommit():
 	except: 	
 		errorMessage("Commit")
 
+def doPullSync():
+	try: 
+		doVerifyRemote();
+		message = generateMessage("Pull")
+		print(message[0])
+		createSubProcess(['git', 'pull', 'origin', 'master'])
+		print(message[1])
+	except:
+		errorMessage("Pull")
 
-def createSubProcess(args):
-	args = args
-	p = subprocess.Popen(args,
-		stdin=subprocess.PIPE,
-		stdout=subprocess.PIPE,
-		stderr=subprocess.PIPE,
-		text=True)
-	p.communicate()
+def doPushSync():
+	try: 
+		doVerifyRemote();
+		message = generateMessage("Push")
+		print(message[0])
+		createSubProcess(['git', 'push', 'origin', 'master'])
+		print(message[1])
+	except:
+		errorMessage("Push")
 
-doStagingArea()
-doCommit()
+def doGitFlow():
+	try: 
+		doPullSync()
+		doStagingArea()
+		doCommit()
+		doPushSync()
+	except:
+		errorMessage("Push")
+
+
+doGitFlow()
 
 # print("\n-----------------------\nSaida: \n" + saida[0] + "\n------------------------\n");
 # print("\n-----------------------\nErros: \n" + saida[1] + "\n------------------------\n");
