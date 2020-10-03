@@ -41,4 +41,4 @@ doCommit()
 # print("\n-----------------------\nSaida: \n" + saida[0] + "\n------------------------\n");
 # print("\n-----------------------\nErros: \n" + saida[1] + "\n------------------------\n");
 
-print("\n\nPrograma python finalizado")
+print("\n\nPython program finished")
