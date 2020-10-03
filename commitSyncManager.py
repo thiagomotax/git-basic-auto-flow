@@ -18,7 +18,7 @@ def doStagingArea():
 def doCommit():
 	try: 
 		message = generateMessage("Commit")
-		commitMessage = input("Please type the description for commit")
+		commitMessage = input("Please type the description for commit: ")
 		print(message[0])
 		createSubProcess(['git', 'commit', '-m', commitMessage])
 		print(message[1])
