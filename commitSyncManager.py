@@ -1,4 +1,6 @@
 import subprocess
+import os
+
 def errorMessage(operation):
 	print(f"Something went wrong in {operation}")
 
@@ -13,6 +15,13 @@ def createSubProcess(args):
 		stderr=subprocess.PIPE,
 		text=True)
 	return p.communicate()
+
+def doVerifyRepository():
+	if os.path.isdir('.git'):
+		print('Local repository found')
+	else:
+		createSubProcess(['git', 'init'])
+		print('Local repository created')
 
 def doVerifyRemote():
 	output, error = createSubProcess(['git', 'remote'])
@@ -57,6 +66,7 @@ def doPushSync():
 		errorMessage("Push")
 
 def doGitFlow():
+	doVerifyRepository()
 	doVerifyRemote()
 	doPullSync()
 	doStagingArea()
