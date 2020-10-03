@@ -17,7 +17,7 @@ def createSubProcess(args):
 def doVerifyRemote():
 	output, error = createSubProcess(['git', 'remote'])
 	if output == '':
-		raise Exception("Please, first connect to remote (or you can start the project with clone)")
+		raise ValueError("\n------\n-Please, first connect to remote\nYou can do this by git remote add origin https://... \n or with git clone https://\n------")
 
 def doStagingArea():
 	try: 
@@ -25,7 +25,7 @@ def doStagingArea():
 		print(message[0])
 		createSubProcess(['git', 'add', '.'])
 		print(message[1])
-	except: 	
+	except error: 	
 		errorMessage("Add")
 
 def doCommit():
@@ -40,7 +40,6 @@ def doCommit():
 
 def doPullSync():
 	try: 
-		doVerifyRemote();
 		message = generateMessage("Pull")
 		print(message[0])
 		createSubProcess(['git', 'pull', 'origin', 'master'])
@@ -50,7 +49,6 @@ def doPullSync():
 
 def doPushSync():
 	try: 
-		doVerifyRemote();
 		message = generateMessage("Push")
 		print(message[0])
 		createSubProcess(['git', 'push', 'origin', 'master'])
@@ -59,14 +57,11 @@ def doPushSync():
 		errorMessage("Push")
 
 def doGitFlow():
-	try: 
-		doPullSync()
-		doStagingArea()
-		doCommit()
-		doPushSync()
-	except:
-		errorMessage("Push")
-
+	doVerifyRemote()
+	doPullSync()
+	doStagingArea()
+	doCommit()
+	doPushSync()
 
 doGitFlow()
 
